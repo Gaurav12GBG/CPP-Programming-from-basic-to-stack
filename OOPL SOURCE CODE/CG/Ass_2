@@ -1,0 +1,55 @@
+
+#include<stdio.h>
+#include <conio.h>
+#include <graphics.h>
+#include <stdlib.h>
+#include <dos.h>
+
+void main()
+{
+    int gd = DETECT, gm;
+    int rhx, rhy, j, i;
+    clrscr(); 
+
+    initgraph(&gd,&gm,"C:\\Turboc3\\bgi");
+    for(i = 0;i<=600;i+=5)
+    {
+        line(0,415,640,415); //platform
+
+        if (i % 4 == 1)
+        {
+            line20+i , 360 , 0+i , 385); //left leg
+            line(20 + i, 400, 10 + i, 415); //right leg
+            line(20 + i, 400, 30 + i, 415); //left hand
+            delay(20);
+        }
+        else
+        {
+            line(20 + i, 360, 30 + i, 390); //right leg
+            line(20 + i, 400, 25+ i, 415); //left hand
+            delay(20);
+        }
+
+        line(20 + i, 360, 20 + i, 400); //body
+        circle(20 + i, 350, 10);        //head
+        line(20 + i, 310, 50 + i, 380); //hand
+        line(35 + i, 385, 35 + i, 330); //Umbrella stick
+        line(5 + i, 330, 65 + i, 330); //Umbrella right
+
+        arc(35 + i, 330, 0, 180, 30);  //Umbrella body
+        arc(40+i , 380 , 180 , 360 , 5); //Umbrella handle
+
+        rhx = getmaxx();
+        rhy = getmaxy();
+
+        for (j = 0; j < 100; j++)
+        {
+            outtextxy(random(640), random(480), "|");
+
+            setcolor(WHITE);
+        }
+        delay(100);
+        cleardevice();
+}
+     getch();
+}

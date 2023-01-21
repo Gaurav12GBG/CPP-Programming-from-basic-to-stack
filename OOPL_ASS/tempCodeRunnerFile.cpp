@@ -1,0 +1,3 @@
+
+    void accept();
+    void display();
